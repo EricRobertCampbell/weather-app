@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 
-const QUERY_TEMP = gql`
+export const QUERY_TEMP = gql`
   query($name: String!) {
     getCityByName(name: $name) {
       id
@@ -39,6 +39,7 @@ const DisplayTemperature = (props) => {
   const { min, max } = data.getCityByName.weather.temperature;
   return (
     <>
+      <h2>Temperature in {props.city}</h2>
       <p>Min: {min}</p>
       <p>Max: {max}</p>
     </>
